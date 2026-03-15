@@ -1,0 +1,177 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #222; /* Koyu arka plan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Scroll bar'ları gizle */
+}
+
+#game-container {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    border: 2px solid #555;
+    border-radius: 8px; /* İsteğe bağlı, hafif yumuşatılmış köşeler */
+    overflow: hidden; /* Canvas taşmalarını engellemek için */
+}
+
+canvas {
+    display: block; /* Altındaki ekstra boşluğu kaldırmak için */
+    background-color: #87CEEB; /* Şimdilik gökyüzü mavisi temsilci arkaplan */
+}
+
+/* --- Menü Arayüzü İçin Stiller --- */
+#game-container {
+    position: relative; /* Menü divinin canvas'ın üstüne oturması için zorunlu */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    border: 2px solid #555;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.menu-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Arka planı yarı saydam karartır */
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.game-title {
+    font-size: 80px;
+    margin-bottom: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 4px 4px 0px #8B4513, 0 0 20px rgba(0,0,0,0.8);
+    color: #F5DEB3; /* Hafif odunsu/kumsu renk */
+}
+
+.play-button {
+    font-size: 32px;
+    padding: 15px 60px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 6px 0 #c0392b, 0 10px 10px rgba(0,0,0,0.5);
+    transition: all 0.1s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.play-button:hover {
+    background-color: #ff5e4d;
+}
+
+.play-button:active {
+    transform: translateY(6px);
+    box-shadow: 0 0px 0 #c0392b, 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* --- Skor ve Liderlik Tablosu Stilleri --- */
+#score-display {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.8);
+    z-index: 5;
+}
+
+#player-name-input {
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 2px solid #555;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    margin-right: 10px;
+    font-family: inherit;
+    outline: none;
+}
+
+#player-name-input:focus {
+    border-color: #32c8ff;
+}
+
+.small-button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 4px 0 #219653;
+    transition: all 0.1s;
+}
+
+.small-button:hover {
+    background-color: #2ecc71;
+}
+
+.small-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 0px 0 #219653;
+}
+
+.leaderboard {
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 300px;
+    text-align: left;
+    border: 1px solid #555;
+}
+
+.leaderboard h3 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 24px;
+    color: #f1c40f;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+}
+
+#leaderboard-list {
+    list-style-type: decimal;
+    padding-left: 20px;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#leaderboard-list li {
+    font-size: 20px;
+    padding: 5px 0;
+    border-bottom: 1px dashed #444;
+    display: flex;
+    justify-content: space-between;
+}
+
+#leaderboard-list li:last-child {
+    border-bottom: none;
+}
+
+.score-value {
+    color: #32c8ff;
+    font-weight: bold;
+}

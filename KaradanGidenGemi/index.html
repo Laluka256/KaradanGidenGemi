@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yürüyen Gemi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Oyun İçi Skor Göstergesi -->
+        <div id="score-display">Skor: <span id="current-score">0</span></div>
+
+        <!-- Ana Menü / Tekrar Oyna Menüsü -->
+        <div id="start-menu" class="menu-overlay">
+            <h1 class="game-title">Yürüyen Gemi</h1>
+            
+            <!-- Ölüm sonrası çıkan İsim Girme ve Skor Kaydetme Alanı (Normalde gizli) -->
+            <div id="game-over-panel" style="display: none; margin-bottom: 20px; text-align: center;">
+                <h2 style="color: #ff4d4d;">Oyun Bitti!</h2>
+                <p>Skorunuz: <span id="final-score">0</span></p>
+                <input type="text" id="player-name-input" placeholder="İsminizi Girin" maxlength="15" autocomplete="off">
+                <button id="save-score-button" class="small-button">Kaydet</button>
+            </div>
+
+            <button id="start-button" class="play-button">Oyna</button>
+            
+            <!-- Liderlik Tablosu -->
+            <div id="leaderboard-panel" class="leaderboard">
+                <h3>En Yüksek Skorlar</h3>
+                <ul id="leaderboard-list">
+                    <!-- Javascript ile doldurulacak -->
+                </ul>
+            </div>
+        </div>
+        
+        <canvas id="gameCanvas" width="1280" height="720"></canvas>
+    </div>
+
+    <!-- Oyun Scriptleri -->
+    <script src="js/input.js"></script>
+    <script src="js/projectile.js"></script>
+    <script src="js/platform.js"></script>
+    <script src="js/cloud.js"></script>
+    <script src="js/enemy.js"></script>
+    <script src="js/healthdrop.js"></script>
+    <script src="js/ammodrop.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
